@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Мой путь в IT | Данила</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Inter', 'Courier New', system-ui, sans-serif;
+      background: linear-gradient(145deg, #0b1120 0%, #19233c 100%);
+      min-height: 100vh;
+      color: #e2e8f0;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: rgba(15, 25, 45, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 2.5rem;
+      padding: 2rem;
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      background: linear-gradient(120deg, #ffffff, #94a3f8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #94a3b8;
+      margin-bottom: 3rem;
+      border-bottom: 1px dashed #334155;
+      display: inline-block;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #0f172a;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      width: 300px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #2d3a5e;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.5);
+      border-color: #5b7cae;
+    }
+
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #facc15;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #cbd5e1;
+    }
+
+    /* НОВЫЙ БЛОК ПРО РАЗРАБОТКУ НЕЙРОСЕТИ (аккуратный и понятный) */
+    .future-plan {
+      background: #0f172a;
+      margin: 2rem 0;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      border-left: 6px solid #94a3f8;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #cbd5e6;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .future-plan strong {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    .demo-zone {
+      background: #0a0f1a;
+      border-radius: 2rem;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+      border: 1px solid #2a3a5e;
+    }
+
+    .demo-zone h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #facc15;
+    }
+
+    .demo-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+    }
+
+    .btn {
+      background: #2a3a5e;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.8rem 1.8rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      background: #3b5282;
+      transform: scale(1.03);
+    }
+
+    .result-box {
+      background: #020617;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      text-align: left;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      border-left: 6px solid #facc15;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #cbd5f0;
+    }
+
+    .dots {
+      display: inline-block;
+      font-size: 2rem;
+      letter-spacing: 4px;
+    }
+
+    @keyframes blink {
+      0%, 20% { opacity: 0.2; }
+      50% { opacity: 1; }
+      80%, 100% { opacity: 0.2; }
+    }
+
+    .dot {
+      animation: blink 1.2s infinite;
+      display: inline-block;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    .heart-animation {
+      font-size: 4rem;
+      text-align: center;
+      animation: pulseHeart 0.8s infinite ease-in-out;
+      display: inline-block;
+      width: 100%;
+    }
+
+    @keyframes pulseHeart {
+      0% { transform: scale(1); opacity: 0.7; text-shadow: 0 0 5px red; }
+      50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 25px #ff4d4d; }
+      100% { transform: scale(1); opacity: 0.7; text-shadow: 0 0 5px red; }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #5b6e8c;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🧑‍💻 Мой путь в IT</h1>
+  <div style="text-align: center;">
+    <div class="subtitle">от блоков кода — к большим проектам</div>
+  </div>
+
+  <div class="projects">
+    <div class="card">
+      <h3>🤖 VK‑бот</h3>
+      <p>Написал и запустил полноценного бота для ВКонтакте. Клавиатуры, диалоги, база данных, работа 24/7.</p>
+    </div>
+    <div class="card">
+      <h3>🎨 Анимации</h3>
+      <p>Пульсирующие сердца, летающие частицы и интерактивные окна с камерой. Python + Pygame оживляют код.</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ Решаю реальные задачи</h3>
+      <p>Создаю не просто «картинку», а рабочие инструменты: ботов, интерфейсы, логику. Решаю реальные задачи.</p>
+    </div>
+  </div>
+
+  <!-- НОВЫЙ БЛОК – ТИХИЙ, НО ВАЖНЫЙ -->
+  <div class="future-plan">
+    💡 <strong>Прямо сейчас в разработке:</strong> собственная нейросеть / голосовой помощник с кастомной анимацией.  
+    Пишу свой мини‑аналог Джарвиса. 🧠  
+    📌 <strong>Но для следующего этапа нужна машинка помощнее — старый ноутбук уже не тянет.</strong>
+  </div>
+
+  <div class="demo-zone">
+    <h3>⚡ Демо-зона</h3>
+    <p>Нажми на кнопку — увидишь, что я умею</p>
+
+    <div class="demo-buttons">
+      <button class="btn" id="showBotBtn">📄 Пример VK‑бота</button>
+      <button class="btn" id="showAnimationBtn">💖 Запустить анимацию</button>
+    </div>
+
+    <div id="resultArea" class="result-box">
+      💡 Нажми на любую кнопку, чтобы увидеть мои наработки.
+    </div>
+  </div>
+
+  <footer>
+    <p>С каждым днём пилю проекты сложнее. Это лишь малая часть того, что могу показать. Готов развиваться дальше.</p>
+  </footer>
+</div>
+
+<script>
+  const resultDiv = document.getElementById('resultArea');
+  const botBtn = document.getElementById('showBotBtn');
+  const animBtn = document.getElementById('showAnimationBtn');
+
+  botBtn.addEventListener('click', () => {
+    resultDiv.innerHTML = `
+      <div style="font-family: monospace; line-height: 1.5;">
+        <span style="color:#facc15;">🐍 Python — VK-бот (рабочая логика):</span><br><br>
+        <code style="background:#00000055; padding:0.75rem; display:block; border-radius:1rem;">
+from vk_api.keyboard import VkKeyboard, VkKeyboardColor
+
+def get_main_keyboard():
+    keyboard = VkKeyboard(one_time=False)
+    keyboard.add_button('📅 Добавить тренировку', color=VkKeyboardColor.PRIMARY)
+    keyboard.add_button('👀 Посмотреть тренировки', color=VkKeyboardColor.POSITIVE)
+    keyboard.add_line()
+    keyboard.add_button('❓ Помощь', color=VkKeyboardColor.SECONDARY)
+    return keyboard
+
+def save_training(date, title, content_type, content):
+    conn = sqlite3.connect('trainings.db')
+    cur = conn.cursor()
+    cur.execute('''
+        INSERT INTO trainings (date, title, content_type, content)
+        VALUES (?, ?, ?, ?)
+    ''', (date, title, content_type, content))
+    conn.commit()
+    conn.close()
+        </code><br>
+        🟢 Бот реально работает: ведёт диалог, запоминает даты и фото.<br>
+        📍 Полный код готов — могу показать при встрече.
+      </div>
+    `;
+  });
+
+  animBtn.addEventListener('click', () => {
+    resultDiv.innerHTML = `
+      <div style="text-align: center;">
+        <div style="font-size: 1.2rem;">✨ Загружаю движок ✨</div>
+        <div class="dots" id="thinkingDots" style="margin-top: 10px;">
+          <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      resultDiv.innerHTML = `
+        <div style="text-align: center;">
+          <div class="heart-animation">❤️</div>
+          <p style="margin-top: 1rem; color: #facc15;">Готово! Сердце оживает прямо в коде.</p>
+          <p style="font-size: 0.8rem;">Такие эффекты я могу встраивать в любые приложения.</p>
+        </div>
+      `;
+    }, 1400);
+  });
+</script>
+</body>
+</html>
